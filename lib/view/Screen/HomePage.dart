@@ -8,7 +8,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text("Employees name"),
+        centerTitle: true,
+        backgroundColor: Colors.black,
+      ),
       body: GetBuilder(
           init: HomePageController(),
           builder: (controller) {
@@ -20,7 +24,18 @@ class HomePage extends StatelessWidget {
                   child: ListView.builder(
                     itemCount: snapshot.data?.length,
                     itemBuilder: (BuildContext context, int index) {
-                      return Text("${snapshot.data?[index]["name"]}");
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 2,
+                            child: ElevatedButton(
+                              onPressed: () {},
+                              child: Text("${snapshot.data[index]["name"]}"),
+                            ),
+                          )
+                        ],
+                      );
                     },
                   ),
                 );
