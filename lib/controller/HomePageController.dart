@@ -1,5 +1,7 @@
+// ignore: duplicate_ignore
+// ignore: file_names
+// ignore_for_file: file_names
 import 'dart:convert';
-
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
@@ -38,8 +40,6 @@ class HomePageController extends GetxController {
     try {
       var url = Uri.parse("$baseUrl/$id");
       var response = await http.get(url, headers: getHeader());
-      // List<dynamic> employeesList = jsonDecode(response.body);
-      print(response.body);
       return jsonDecode(response.body);
     } catch (e) {
       // ignore: avoid_print
