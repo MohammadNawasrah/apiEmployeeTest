@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
           init: HomePageController(),
           builder: (controller) {
             return FutureBuilder(
-              future: controller.getAllEmployee(),
+              future: controller.getEmployees(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 return RefreshIndicator(
                   onRefresh: () async {},
