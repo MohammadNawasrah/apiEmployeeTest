@@ -2,6 +2,7 @@
 // ignore: file_names
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
+import '../widget/HomePage/AddEmployeeButton.dart';
 import '../widget/HomePage/ButtonDisplayEmployee.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,6 +17,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.black,
       ),
       body: const ButtonDisplayEmployee(),
+      floatingActionButton: const AddEmployeeButton(),
     );
   }
 }

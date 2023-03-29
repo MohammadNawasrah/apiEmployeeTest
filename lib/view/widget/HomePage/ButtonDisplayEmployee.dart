@@ -40,7 +40,8 @@ class ButtonDisplayEmployee extends StatelessWidget {
                             },
                             style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.black),
-                            child: Text("${snapshot.data[index]["name"]}"),
+                            child: Text(
+                                "${snapshot.data?[index]["name"] == null ? "noHave data" : snapshot.data[index]["name"]}"),
                           ),
                         )
                       ],
