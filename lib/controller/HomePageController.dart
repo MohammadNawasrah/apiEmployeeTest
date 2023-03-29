@@ -2,10 +2,17 @@
 // ignore: file_names
 // ignore_for_file: file_names
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class HomePageController extends GetxController {
+  late TextEditingController employeeName;
+  late TextEditingController employeeAge;
+  late TextEditingController employeeEmail;
+  late TextEditingController employeeLocation;
+  late TextEditingController employeeDepartment;
+
   String baseUrl = "http://192.168.143.205:8080/employees";
   Map<String, String> getHeader() {
     return {
