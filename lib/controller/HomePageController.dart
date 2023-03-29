@@ -7,11 +7,11 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 
 class HomePageController extends GetxController {
-  late TextEditingController employeeName;
-  late TextEditingController employeeAge;
-  late TextEditingController employeeEmail;
-  late TextEditingController employeeLocation;
-  late TextEditingController employeeDepartment;
+  late TextEditingController employeeName = TextEditingController();
+  late TextEditingController employeeAge = TextEditingController();
+  late TextEditingController employeeEmail = TextEditingController();
+  late TextEditingController employeeLocation = TextEditingController();
+  late TextEditingController employeeDepartment = TextEditingController();
 
   String baseUrl = "http://192.168.143.205:8080/employees";
   Map<String, String> getHeader() {
@@ -22,11 +22,11 @@ class HomePageController extends GetxController {
 
   String updateEmployee() {
     return jsonEncode({
-      "name": "reem",
-      "age": 17,
-      "location": "jenen",
-      "email": "i dont have",
-      "department": "sleep"
+      "name": employeeName.text,
+      "age": int.parse(employeeAge.text),
+      "location": employeeLocation.text,
+      "email": employeeEmail.text,
+      "department": employeeDepartment.text
     });
   }
 
@@ -86,6 +86,11 @@ class HomePageController extends GetxController {
       var url = Uri.parse("$baseUrl/employee");
       var response =
           await http.post(url, headers: getHeader(), body: updateEmployee());
+      employeeAge.text = "";
+      employeeName.text = "";
+      employeeLocation.text = "";
+      employeeEmail.text = "";
+      employeeDepartment.text = "";
       update();
       return response.body;
     } catch (e) {
