@@ -3,6 +3,7 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import '../widget/HomePage/AddEmployeeButton.dart';
+import '../widget/HomePage/ButtonDeleteEmployee.dart';
 import '../widget/HomePage/ButtonDisplayEmployee.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,7 +17,12 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.black,
       ),
-      body: const ButtonDisplayEmployee(),
+      body: Row(
+        children: const [
+          Expanded(child: ButtonDisplayEmployee()),
+          Expanded(child: ButtonDeleteEmployee()),
+        ],
+      ),
       floatingActionButton: const AddEmployeeButton(),
     );
   }

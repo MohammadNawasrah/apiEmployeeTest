@@ -59,6 +59,7 @@ class HomePageController extends GetxController {
     try {
       var url = Uri.parse("$baseUrl/employee?id=$id");
       var response = await http.delete(url, headers: getHeader());
+      update();
       return response.body;
     } catch (e) {
       // ignore: avoid_print
