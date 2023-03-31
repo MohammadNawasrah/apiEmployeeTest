@@ -68,20 +68,6 @@ class HomePageController extends GetxController {
     }
   }
 
-  Future<String> employeeUpdate(int id) async {
-    try {
-      var url = Uri.parse("$baseUrl/employee/$id");
-      var response =
-          await http.put(url, headers: getHeader(), body: updateEmployee());
-      update();
-      return response.body;
-    } catch (e) {
-      // ignore: avoid_print
-      print(e.toString());
-      return "error";
-    }
-  }
-
   Future<String> employeeSave() async {
     try {
       var url = Uri.parse("$baseUrl/employee");
