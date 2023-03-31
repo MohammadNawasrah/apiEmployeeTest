@@ -36,11 +36,11 @@ class DialogEmployeeData extends StatelessWidget {
           child: Column(
             children: [
               Text(snapshotData.data[indexData]["id"].toString()),
-              Text(snapshotData.data[indexData]["name"]),
+              Text(snapshotData.data?[indexData]["name"] ?? ""),
               Text(snapshotData.data[indexData]["age"].toString()),
-              Text(snapshotData.data[indexData]["email"]),
-              Text(snapshotData.data[indexData]["location"]),
-              Text(snapshotData.data[indexData]["department"]),
+              Text(snapshotData.data?[indexData]["email"] ?? ""),
+              Text(snapshotData.data?[indexData]["location"] ?? ""),
+              Text("${snapshotData.data?[indexData]["department"] ?? ""}"),
             ],
           ),
         ),
