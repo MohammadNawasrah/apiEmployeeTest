@@ -17,12 +17,9 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.black,
       ),
-      body: Row(
-        children: const [
-          Expanded(child: ButtonDisplayEmployee()),
-          Expanded(child: ButtonDeleteEmployee()),
-        ],
-      ),
+      body: const ButtonDisplayEmployee(),
+      // Expanded(child: ButtonDeleteEmployee()),
+
       floatingActionButton: const AddEmployeeButton(),
     );
   }

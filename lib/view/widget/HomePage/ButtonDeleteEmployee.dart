@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:testapi/controller/HomePageController.dart';
 
+// ignore: must_be_immutable
 class ButtonDeleteEmployee extends StatelessWidget {
-  const ButtonDeleteEmployee({super.key});
+  int i;
+  AsyncSnapshot snapshot;
+  ButtonDeleteEmployee({super.key, required this.i, required this.snapshot});
 
   @override
   Widget build(BuildContext context) {
@@ -31,26 +34,17 @@ class ButtonDeleteEmployee extends StatelessWidget {
           child: const Text("cancel"));
     }
 
-    return FutureBuilder(
-        future: homePageController.getEmployees(),
-        builder: (context, snapshot) {
-          return ListView.builder(
-              itemCount: snapshot.data?.length,
-              itemBuilder: (context, i) {
-                return Container(
-                  padding: const EdgeInsets.only(left: 2),
-                  child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red[400]),
-                      onPressed: () {
-                        Get.defaultDialog(
-                            title: "Delete Employee!",
-                            confirm: employeeDelete(snapshot.data?[i]["id"]),
-                            cancel: cancel());
-                      },
-                      child: const Icon(Icons.delete_forever_outlined)),
-                );
-              });
-        });
+    return Container(
+      padding: const EdgeInsets.only(left: 2),
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.red[400]),
+          onPressed: () {
+            Get.defaultDialog(
+                title: "Delete Employee!",
+                confirm: employeeDelete(snapshot.data?[i]["id"]),
+                cancel: cancel());
+          },
+          child: const Icon(Icons.delete_forever_outlined)),
+    );
   }
 }
