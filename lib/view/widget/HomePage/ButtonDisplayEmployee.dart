@@ -3,6 +3,7 @@
 // ignore_for_file: file_names
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:testapi/view/widget/HomePage/ButtonDeleteEmployee.dart';
 import '../../../controller/HomePageController.dart';
 import 'DialogEmployeeData.dart';
 
@@ -25,9 +26,9 @@ class ButtonDisplayEmployee extends StatelessWidget {
                   itemCount: snapshot.data?.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(
+                        Expanded(
+                            child: SizedBox(
                           width: MediaQuery.of(context).size.width / 2,
                           child: ElevatedButton(
                             onPressed: () {
@@ -43,7 +44,8 @@ class ButtonDisplayEmployee extends StatelessWidget {
                             child: Text(
                                 "${snapshot.data?[index]["name"] == null ? "noHave data" : snapshot.data[index]["name"]}"),
                           ),
-                        )
+                        )),
+                        ButtonDeleteEmployee(i: index, snapshot: snapshot)
                       ],
                     );
                   },
